@@ -1,0 +1,20 @@
+[package]
+name = "glfw-bindgen"
+version = "0.1.0"
+edition = "2021"
+description = "Bindings to GLFW generated with rust-bindgen"
+license = "Zlib"
+repository = "https://github.com/Friz64/glfw-bindgen"
+documentation = "https://docs.rs/glfw-bindgen"
+
+[build-dependencies]
+bindgen = "0.61"
+cmake = "0.1"
+
+[dependencies]
+
+[dev-dependencies]
+gl33 = { version = "0.2", features = ["global_loader"] }
+
+[features]
+wayland = []
