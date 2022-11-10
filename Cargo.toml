@@ -1,6 +1,6 @@
 [package]
 name = "glfw-bindgen"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 description = "Bindings to GLFW generated with rust-bindgen"
 license = "Zlib"

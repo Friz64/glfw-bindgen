@@ -6,17 +6,19 @@ const GLFW_USE_WAYLAND: &str = "ON";
 const GLFW_USE_WAYLAND: &str = "OFF";
 
 fn main() {
-    let bindings = bindgen::Builder::default()
+    let bindgen_builder = bindgen::Builder::default()
         .header("wrapper.h")
         .allowlist_function("glfw.*")
-        .allowlist_var("GLFW.*")
+        .allowlist_var("GLFW.*");
+    #[cfg(feature = "wayland")]
+    let bindgen_builder = bindgen_builder.clang_arg("-DGLFW_BINDGEN_FEATURE_WAYLAND");
+    let bindings = bindgen_builder
         .generate()
-        .expect("Unable to generate bindings");
-
+        .expect("Failed to generate bindings");
     let out_path = PathBuf::from(env::var("OUT_DIR").unwrap());
     bindings
         .write_to_file(out_path.join("bindings.rs"))
-        .expect("Couldn't write bindings!");
+        .expect("Failed to write bindings");
 
     let libdir = "lib";
     let cmake = cmake::Config::new("./glfw")
