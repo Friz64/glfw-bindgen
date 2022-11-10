@@ -1,5 +1,8 @@
 # glfw-bindgen
 
+[![crates.io](https://img.shields.io/crates/v/glfw-bindgen)](https://crates.io/crates/glfw-bindgen)
+[![docs.rs](https://docs.rs/glfw-bindgen/badge.svg)](https://docs.rs/glfw-bindgen)
+
 Bindings to GLFW generated with
 [rust-bindgen](https://rust-lang.github.io/rust-bindgen/).
 
